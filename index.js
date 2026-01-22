@@ -1,8 +1,7 @@
 //34esXVvVHizyExlYBG4HqETmNlVd67SDG3z4zZUvVuS0hCDlFzs2kXYO
-let animal = "tiger";
-const pexelsURL = `https://api.pexels.com/v1/search?query=${animal}`;
 
-const createCard = () => {
+const createCard = (animal) => {
+  const pexelsURL = `https://api.pexels.com/v1/search?query=${animal}`;
   let resAnimals = [];
   fetch(pexelsURL, {
     headers: {
@@ -17,10 +16,12 @@ const createCard = () => {
       }
     })
     .then((data) => {
+      let currentAnimal = animal;
       resAnimals = data;
-      console.log(resAnimals);
-
+      console.log(currentAnimal, resAnimals);
       const cardsRowEl = document.getElementById("cardsRow");
+      cardsRowEl.innerHTML = "";
+
       resAnimals.photos.forEach((item) => {
         cardsRowEl.innerHTML += `
         <div class="col-md-4">
@@ -48,4 +49,9 @@ const createCard = () => {
     });
 };
 
-createCard();
+document.getElementById("load-imgs-btn").addEventListener("click", () => {
+  createCard("elephant");
+});
+document.getElementById("load-other-imgs-btn").addEventListener("click", () => {
+  createCard("tiger");
+});
