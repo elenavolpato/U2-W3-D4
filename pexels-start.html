@@ -131,9 +131,19 @@
           <p class="lead text-muted">This page will dynamically load pictures from the web, and display them in a cool way!</p>
           <p>
             <button id="load-imgs-btn" class="btn btn-primary my-2">Load Images</button>
-            <button id="load-other-imgs-btn" class="btn btn-secondary my-2">Load Secondary Images</a>
+            <button id="load-other-imgs-btn" class="btn btn-secondary my-2">Load Secondary Images</button>
           </p>
         </div>
+
+        <form class="container mt-4">
+          <div class="form-group row justify-content-center align-items-end">
+            <div class="col-6">
+              <!-- <label for="searchField">Search</label> -->
+              <input type="text" class="form-control" id="searchField" aria-describedby="search" placeholder="Search other images" />
+            </div>
+            <button type="submit" class="col-2 btn btn-primary" id="search-btn">Search</button>
+          </div>
+        </form>
       </section>
       <div class="album py-5 bg-light">
         <div class="container">
